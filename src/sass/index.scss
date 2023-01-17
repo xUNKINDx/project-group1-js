@@ -1,8 +1,8 @@
-@import "./common";
-@import "./variables";
-@import "./container";
-@import "./header-home";
-@import "./header-library";
-@import "./modal";
-@import "./content";
-@import "./footer";
+@import "./utils/variables";
+@import "./base/common";
+@import "./base/container";
+@import "./layout/header-home";
+@import "./layout/header-library";
+@import "./layout/modal";
+@import "./layout/content";
+@import "./layout/footer";
