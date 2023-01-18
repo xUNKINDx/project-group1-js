@@ -1,0 +1,38 @@
+.footer-section{
+background-color: $background-footer;
+    padding: 29px 0;
+}
+.footer{
+   
+    
+    display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    
+    &__text{
+
+    text-align: center;
+    font-family: $font-family-premier;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1875;
+    color: #545454;
+    
+
+   
+    }
+        &__icon {
+            fill: #FF6B08;
+     
+            
+            margin: 0 10px;
+        }
+    
+        &__link {
+           
+            text-decoration: underline;
+            color: inherit;
+    
+        }
+}
