@@ -41,4 +41,8 @@ a {
   .container {
     width: 1280px;
   }
+}
+
+.container {
+  display: flex;
 }/*# sourceMappingURL=index.css.map */
