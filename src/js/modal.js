@@ -17,31 +17,62 @@ const handleClick = (e) => {
     };    
 }; 
 
+function getArrayFromLocalStorage(keyLocalStorage) {
+    let arrayFilms = [];    
+    const savedSettings = localStorage.getItem(keyLocalStorage); 
+        if(savedSettings !== null){
+            arrayFilms = savedSettings.split(";");     
+        };                
+    return arrayFilms;                               
+};
+
+function addRemoveFilmsArrayInLocalStorage(arrayKeysLocalStorage,filmIdModal) {   
+    let keyLocalStorage = "";   
+    for (let i = 0; i < arrayKeysLocalStorage.length; i++) {
+        keyLocalStorage = arrayKeysLocalStorage[i]; 
+        arrayFilms = getArrayFromLocalStorage(keyLocalStorage);                     
+        if (arrayFilms.indexOf(filmIdModal) !== -1){ 
+            console.log(`Уже есть ${arrayFilms.join(";")}`);                
+            arrayFilms.splice(arrayFilms.indexOf(filmIdModal),1); 
+        }else{
+            arrayFilms.push(filmIdModal); 
+        };      
+        if (keyLocalStorage === "Watched") {
+            refs.addToWatched.classList.toggle("hasAlready");  
+        } else {
+            refs.addToQueue.classList.toggle("hasAlready");       
+        };                     
+        localStorage.setItem(keyLocalStorage, arrayFilms.join(";")); 
+        console.log(arrayFilms.join(";"));                            
+    };                               
+};
+
+function addClassBtnDependingOnStatus(keyLocalStorage,filmIdModal){       
+    arrayFilms = getArrayFromLocalStorage(keyLocalStorage);     
+    if (arrayFilms.indexOf(filmIdModal) !== -1){ 
+        console.log(`Уже есть ${arrayFilms.join(";")}`); 
+        if (keyLocalStorage === "Watched") {
+            refs.addToWatched.classList.add("hasAlready");
+        } else {
+            refs.addToQueue.classList.add("hasAlready");     
+        };               
+    };                                 
+};
+
+function removeClassBtnDependingOnStatus(){         
+    refs.addToWatched.classList.remove("hasAlready");
+    refs.addToQueue.classList.remove("hasAlready");                                 
+};
+
 const saveLocalStorageFilmStatus = (e) => {         
-    const filmIdModal = refs.filmIdElem.dataset.filmidmodal;
-    console.log(filmIdModal); 
-    const savedSettings = localStorage.getItem(filmIdModal); 
-    
-    let isWatched = false;
-    let isQueue = false;
-    if(savedSettings !== null){
-        const parsedSettings = JSON.parse(savedSettings);        
-        isWatched = parsedSettings.isWatched; 
-        isQueue = parsedSettings.isQueue; 
-        console.log(parsedSettings); 
-   };
-        
-    const filmStatus = {
-        filmId: filmIdModal,
-        isWatched: isWatched, 
-        isQueue: isQueue, 
-    };          
+    const filmIdModal = refs.filmIdElem.dataset.filmidmodal;  
+    let arrayKeysLocalStorage = [];    
     if (e.target.classList.contains("button-watched") === true) {
-        filmStatus.isWatched = true;      
+        arrayKeysLocalStorage = ["Watched"];     
     } else {
-        filmStatus.isQueue = true;     
-    };               
-    localStorage.setItem(filmIdModal,JSON.stringify(filmStatus));       
+        arrayKeysLocalStorage = ["Queue"];   
+    };      
+    addRemoveFilmsArrayInLocalStorage(arrayKeysLocalStorage,filmIdModal);
 };
 
 function toggleModal(e) {
@@ -49,6 +80,9 @@ function toggleModal(e) {
     refs.filmIdElem.dataset.filmidmodal = e.target.dataset.filmid;  
     refs.modal.classList.toggle("is-hidden");       
     if (refs.modal.classList.contains("is-hidden") === false) {
+        removeClassBtnDependingOnStatus();
+        addClassBtnDependingOnStatus("Watched",refs.filmIdElem.dataset.filmidmodal);
+        addClassBtnDependingOnStatus("Queue",refs.filmIdElem.dataset.filmidmodal);
         document.addEventListener("keydown", handleClick); 
         console.log("hi");         
         refs.addToWatched.addEventListener("click",saveLocalStorageFilmStatus);

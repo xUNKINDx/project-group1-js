@@ -103,6 +103,7 @@ body{
 }
 
 .filmName{
+    margin-bottom: 20px;
     font-family: Roboto;
     font-size: 20px; 
     line-height: 1.172;    
@@ -130,26 +131,24 @@ body{
     };            
      
     cursor: pointer;
-    background-color: #FF6B01;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     font-family: Roboto;
     font-size: 12px;
     font-weight: 500;
     line-height: 1.333;
     letter-spacing: 0em;
     text-align: center;  
-    border: none;
+    border: 1px solid #000000;
     border-radius: 5px;
- }
- .button-watched{
+}
+.button-watched{
     box-sizing: border-box;
     @media screen and (min-width:1024px){
         margin-left: 8px;                      
-    };            
-    
- }
-
- .button-queue{  
+    };    
+}
+.button-queue{  
     box-sizing: border-box;
     margin-left: 17px;   
     @media screen and (min-width:768px){
@@ -159,3 +158,45 @@ body{
         margin-left: 15px;                      
     };            
  }
+ .button-watched.hasAlready,
+ .button-queue.hasAlready,
+ .film-info__vote{
+    background-color: #FF6B01;
+    color: #fff;
+    border: none;
+}
+
+.film-info__item{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;     
+}
+.film-info__itemName,.film-info__itemValue{
+    font-family: Roboto;
+    font-size: 12px;
+    line-height: 1.333; 
+    font-weight: 500;    
+    letter-spacing: 0em;
+    text-align: left;          
+}
+.film-info__itemName{
+    width: 110px;    
+    @media screen and (min-width:1024px){
+        width: 152px;                       
+    }; 
+    color: #8C8C8C; 
+}
+.film-info__itemValue.small{
+    color: #000000;
+    line-height: 1.171;  
+}
+.film-info__vote, .film-info__votes{   
+    padding-top: 3px;
+    width: 36px;
+    height: 16px;
+    border-radius: 5px;
+    text-align: center;  
+}
+.film-info__votes{
+    margin-left:  3px;   
+}
