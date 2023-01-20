@@ -8,7 +8,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <svg class="header__logo-img" width="20" height="20">
+        <svg class="header__logo-img" width="24" height="24">
           <use href="./images/icons.svg#icon-logo"></use>
         </svg>
         <span class="header__logo-title">Filmoteka</span>
@@ -17,10 +17,10 @@
       <nav class="site-nav">
         <ul class="site-nav__list">
           <li class="site-nav__item">
-            <a href="#" class="link home-page">Home</a>
+            <a href="#" class="link home-page current">Home</a>
           </li>
           <li class="site-nav__item">
-            <a href="#" class="link library-page">my library</a>
+            <a href="./partials/header-library.html" class="link library-page">my library</a>
           </li>
         </ul>
       </nav>
@@ -30,15 +30,17 @@
       <form action="#" class="search-form" name="film-search">
         <input
           class="search-form__input"
+          type="text"
           placeholder="Movie search"
           name="users__search"
+          autocomplete="off"
           id="users__search"
         />
         <button type="submit" class="search-form__btn">
           <svg class="search-form__img" width="16" height="16">
             <use href="./images/icons.svg#icon-search"></use>
           </svg>
-        </button>
+        </button> 
       </form>
       <p class="search-message hidden">
         Search result not successful. Enter the correct movie name and
