@@ -64,7 +64,7 @@ body{
 
 .film-container{
     display: flex;
-    //flex-wrap: wrap;
+    flex-wrap: wrap;
     gap: 20px; 
     @media screen and (min-width:768px){
         gap: 68px;                 
@@ -200,6 +200,7 @@ body{
     margin-left:  3px;   
 }
 .film-info__desc{
+    overflow-y: auto;
     margin-bottom: 20px;
     width: 240px;   
     @media screen and (min-width:768px){
