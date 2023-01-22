@@ -19,7 +19,6 @@ async function onFormSubmitHandler(e) {
   console.log(searchText);
   try {
     const data = await searchMovies(searchText, page);
-
     console.log(searchMovies(searchText, page));
     textMessage.classList.add('hidden');
 
