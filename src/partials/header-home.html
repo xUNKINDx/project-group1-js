@@ -1,0 +1,50 @@
+<header class="header">
+  <div class="container">
+    <!-- Home page -->
+    <div class="header__box-nav">
+      <a
+        class="header__logo"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg class="header__logo-img" width="24" height="24">
+          <use href="./images/icons.svg#icon-logo"></use>
+        </svg>
+        <span class="header__logo-title">Filmoteka</span>
+      </a>
+
+      <nav class="site-nav">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="#" class="link home-page current">Home</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="./partials/header-library.html" class="link library-page">my library</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Movie search -->
+    <div class="header__box-search">
+      <form action="#" class="search-form" name="film-search">
+        <input
+          class="search-form__input"
+          type="text"
+          placeholder="Movie search"
+          name="users__search"
+          autocomplete="off"
+          id="users__search"
+        />
+        <button type="submit" class="search-form__btn">
+          <svg class="search-form__img" width="16" height="16">
+            <use href="./images/icons.svg#icon-search"></use>
+          </svg>
+        </button> 
+      </form>
+      <p class="search-message hidden">
+        Search result not successful. Enter the correct movie name and
+      </p>
+    </div>
+  </div>
+</header>

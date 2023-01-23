@@ -1,0 +1,212 @@
+.header {
+  position: fixed;
+  z-index: 99;
+  color: color-white;
+  width: 100%;
+  margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $color-black;
+  padding-top: 40px;
+  padding-bottom: 44px;
+  background-image: url('../images/header_mobile.jpg');
+
+  @media (min-device-pixel-ratio: 2) and (max-width: $tablet),
+    (-webkit-min-device-pixel-ratio: 2) and (max-width: $tablet),
+    (min-resolution: 192dpi) and (max-width: $tablet),
+    (min-resolution: 2dppx) and (max-width: $tablet) {
+    background-image: url('../images/header_mobile@2x.jpg');
+  }
+
+  @media screen and (min-width: $tablet) {
+    background-image: url('../images/header_tablet.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2) and (min-width: $tablet),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: $tablet),
+    (min-resolution: 192dpi) and (min-width: $tablet),
+    (min-resolution: 2dppx) and (min-width: $tablet) {
+    background-image: url('../images/header_tablet@2x.jpg');
+  }
+
+  @media screen and (min-width: 1200px) {
+    background-image: url('../images/header_desktop.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2) and (min-width: $desktop),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: $desktop),
+    (min-resolution: 192dpi) and (min-width: $desktop),
+    (min-resolution: 2dppx) and (min-width: $desktop) {
+    background-image: url('../images/header_desktop@2x.jpg');
+  }
+}
+
+.header__box-nav {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 54px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 42px;
+  }
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.home-page {
+  margin-right: 40px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.17;
+  color: $color-white;
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+    padding-left: 8px;
+  }
+}
+
+.link {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  text-transform: uppercase;
+  color: $color-white;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: -4px;
+  background-color: $color-red;
+  transition: width $transition;
+}
+
+.current:after {
+  width: 100%;
+}
+
+visited:after {
+  background-color: $color-red;
+}
+
+.link:focus:after,
+.link:hover:after {
+  width: 100%;
+}
+
+header__box-search {
+  width: 100%;
+  margin-bottom: 16px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+}
+.search-form {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 280px;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 336px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 394px;
+  }
+}
+
+.search-form__input {
+  display: inline-block;
+  width: 280px;
+  height: 20px;
+  padding: 1px 3px;
+  margin-bottom: 16px;
+  outline: none;
+  border: none;
+  border-bottom: 0.5px solid $color-white;
+  background: transparent;
+  font-size: 14px;
+  line-height: 1.14;
+  color: $color-white;
+
+  @media screen and (min-width: $tablet) {
+    width: 336px;
+    height: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 394px;
+    height: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.search-form__input::placeholder {
+  font-size: 14px;
+  line-height: 1.14;
+  color: $color-white;
+}
+
+.search-form__btn {
+  top: 4px;
+  right: 0;
+  position: absolute;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.search-message {
+  font-size: 14px;
+  line-height: 1.14;
+  color: $color-red;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

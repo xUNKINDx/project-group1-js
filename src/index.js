@@ -1,3 +1,4 @@
+import './js/header-home';
 // import './js/modal.js';
 import { fetchTrandingMovies } from './js/fetchMovies';
 import { renderHomePage } from './js/card';
@@ -9,3 +10,4 @@ const refs = {
 fetchTrandingMovies(1).then(movies => {
   renderHomePage(refs.gallery, movies.results).then(response => {});
 });
+
