@@ -20,7 +20,11 @@ function createMovieCardWithGenres(
                   <div class="box-description">
                     <h2 class="content__title">${title}</h2>
                     <p class="content__text">
-                    ${movieGenres} | ${release_date.slice(0, 4)} ${vote_average == 0 ? `<span class="rating">TBA</span>`: `<span class="rating">${vote_average.toFixed(1)}</span>`}
+                    ${movieGenres} | ${release_date.slice(0, 4)} ${
+    vote_average == 0
+      ? `<span class="rating">TBA</span>`
+      : `<span class="rating">${vote_average.toFixed(1)}</span>`
+  }
                     </p>
                   </div>
                 </li>`;
@@ -29,9 +33,13 @@ function createMovieCardWithGenres(
 }
 
 async function renderHomePage(gallery, movies) {
+  gallery.innerHTML = '';
   const genres = await getGenres();
   const markup = movies.map(movie => createMovieCard(movie, genres)).join('');
-  gallery.insertAdjacentHTML('beforeend', `<ul class= cards__list>${markup}</ul>`);
+  gallery.insertAdjacentHTML(
+    'beforeend',
+    `<ul class= cards__list>${markup}</ul>`
+  );
 
   createModal();
 }

@@ -1,9 +1,11 @@
 import { searchMovies } from './fetchMovies';
+import { renderHomePage } from './card';
 
-const { form, input, submitButton, textMessage } = {
+const { form, input, textMessage, gallery } = {
   form: document.querySelector('.search-form'),
   input: document.querySelector('.search-form__input'),
   textMessage: document.querySelector('.search-message'),
+  gallery: document.querySelector('.cards'),
 };
 
 let page = 1;
@@ -19,7 +21,9 @@ async function onFormSubmitHandler(e) {
   console.log(searchText);
   try {
     const data = await searchMovies(searchText, page);
-    console.log(searchMovies(searchText, page));
+    searchMovies(searchText, page).then(movies => {
+      renderHomePage(gallery, movies.results).then(response => {});
+    });
     textMessage.classList.add('hidden');
 
     if (searchText === '' || searchText === undefined) {

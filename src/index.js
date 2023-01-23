@@ -1,6 +1,6 @@
 
 import './js/header-home';
-import './js/preloader';
+// import './js/preloader';
 // import './js/modal.js';
 import { fetchTrandingMovies } from './js/fetchMovies';
 import { renderHomePage } from './js/card';
