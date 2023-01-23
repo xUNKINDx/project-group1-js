@@ -663,14 +663,29 @@ body {
 
 .cards {
   max-width: 1280px;
-  margin: 20px auto;
+  margin: 20px;
+}
+@media screen and (min-width: 768px) {
+  .cards {
+    margin: 59px 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .cards {
+    margin: 60px 32px;
+  }
+}
+
+.container-cards {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cards__list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
 }
 @media screen and (min-width: 768px) {
   .cards__list {
@@ -738,7 +753,7 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .content__item {
-    width: 395px;
+    width: 394px;
   }
 }
 
@@ -758,7 +773,7 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .content__img {
-    max-width: 395px;
+    max-width: 394px;
   }
 }
 

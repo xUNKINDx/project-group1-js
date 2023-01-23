@@ -1,15 +1,25 @@
 .cards{
     max-width: 1280px;
-    margin: 20px auto;
+    margin: 20px;
 
+    @media screen and (min-width: $tablet){
+      margin: 59px 32px;
+    }
+    @media screen and (min-width: $desktop){
+        margin: 60px 32px;
+    };
 }
 
+.container-cards{
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .cards__list{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
 
     @media screen and (min-width: $tablet){
         gap: 32px;
@@ -65,6 +75,7 @@
     font-weight: 500;
     line-height: 1.167;
     width: 280px;
+
   
   
     transition: box-shadow $transition;
@@ -75,7 +86,8 @@
         width: 336px;
       }
       @media screen and (min-width: $desktop) {
-        width: 395px;
+        width: 394px;
+        
       }
   }
   
@@ -96,7 +108,7 @@
     }
   
     @media screen and (min-width: $desktop) {
-      max-width: 395px;
+      max-width: 394px;
     }
   }
   
