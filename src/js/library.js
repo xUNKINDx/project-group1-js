@@ -1,5 +1,5 @@
 import { renderHomePage } from './card.js';
-export { selectQueue, selectWatched };
+export { selectQueue, selectWatched, mode, renderLibrary };
 
 let mode = 'watched';
 
@@ -13,20 +13,23 @@ const refs = {
 
 refs.watchedButton.addEventListener('click', selectWatched);
 refs.queueButton.addEventListener('click', selectQueue);
-refs.addToWatched.addEventListener('click', renderLibrary);
-refs.addToQueue.addEventListener('click', renderLibrary);
-
+// refs.addToWatched.addEventListener('click', renderLibrary);
+// refs.addToQueue.addEventListener('click', renderLibrary);
 
 renderLibrary();
 
 function selectWatched() {
   mode = 'watched';
   renderLibrary();
+  refs.watchedButton.classList.add("header-library-buttons__button--active")
+  refs.queueButton.classList.remove("header-library-buttons__button--active")
 }
 
 function selectQueue() {
   mode = 'queue';
   renderLibrary();
+  refs.watchedButton.classList.remove("header-library-buttons__button--active")
+  refs.queueButton.classList.add("header-library-buttons__button--active")
 }
 
 function renderLibrary() {

@@ -43,12 +43,13 @@ function getArrayFromLocalStorage(keyLocalStorage) {
   if (savedSettings !== null) {
     try {
       arrayFilms = JSON.parse(savedSettings);
-      console.log('split');
+      
       arrayIdFilms = arrayFilms.map(film => film.id);
     } catch (e) {
       console.log('Ошибка парсинга из LocalStorage');
     }
   }
+
   const parsedSttings = {
     arrayIdFilms: arrayIdFilms,
     arrayFilms: arrayFilms,
@@ -59,19 +60,17 @@ function getArrayFromLocalStorage(keyLocalStorage) {
 
 function addRemoveFilmsArrayInLocalStorage(arrayKeysLocalStorage, filmIdModal) {
   let keyLocalStorage = '';
-  console.log(filmData);
+  
   for (let i = 0; i < arrayKeysLocalStorage.length; i++) {
     keyLocalStorage = arrayKeysLocalStorage[i];
     const { arrayIdFilms, arrayFilms } =
       getArrayFromLocalStorage(keyLocalStorage);
+
     const indexFilm = arrayIdFilms.indexOf(parseInt(filmIdModal, 10));
-    console.log(arrayIdFilms);
-    console.log(`indexFilm ${indexFilm}`);
+    
     if (indexFilm !== -1) {
-      console.log(`Уже есть ${arrayIdFilms}`);
       arrayFilms.splice(indexFilm, 1);
     } else {
-      console.log(filmData);
       const dataForLocalStorage = {
         poster_path: filmData.poster_path,
         title: filmData.title,
@@ -80,15 +79,17 @@ function addRemoveFilmsArrayInLocalStorage(arrayKeysLocalStorage, filmIdModal) {
         vote_average: filmData.vote_average,
         release_date: filmData.release_date,
       };
+
       arrayFilms.push(dataForLocalStorage);
     }
+
     if (keyLocalStorage === WATCHED_KEY) {
       refs.addToWatched.classList.toggle('hasAlready');
     } else {
       refs.addToQueue.classList.toggle('hasAlready');
     }
+
     localStorage.setItem(keyLocalStorage, JSON.stringify(arrayFilms));
-    console.log(`setLocal ${arrayFilms}`);
   }
 }
 
