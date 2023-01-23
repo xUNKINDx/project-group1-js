@@ -1,4 +1,4 @@
-import './js/modal.js';
+// import './js/modal.js';
 import { fetchTrandingMovies } from './js/fetchMovies';
 import { renderHomePage } from './js/card';
 

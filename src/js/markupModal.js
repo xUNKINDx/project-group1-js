@@ -1,6 +1,6 @@
 function getMarkupInfo(data) {
-    const genreD = data.genres.map(genre => genre.name).join(", ");   
-    const markup = `<div class="film-info__container">
+  const genreD = data.genres.map(genre => genre.name).join(', ');
+  const markup = `<div class="film-info__container">
             <h2 class="filmName" data-filmidmodal="">${data.title}</h2> 
             <div class="film-info__item">
                 <p class="film-info__itemName">Vote / Votes</p>
@@ -21,12 +21,11 @@ function getMarkupInfo(data) {
             <p class="film-info__desc">ABOUT<br>${data.overview}</p>
         </div>`;
 
-    return markup;
+  return markup;
 }
 function getMarkupImage(data) {
-    const markup = `<img class="film-image" src="https://image.tmdb.org/t/p/original${data.poster_path}" alt=${data.title} loading="lazy">`
-    return markup;
+  const markup = `<img class="film-image" src="https://image.tmdb.org/t/p/original${data.poster_path}" alt=${data.title} loading="lazy">`;
+  return markup;
 }
 
-
-export {getMarkupInfo,getMarkupImage};
+export { getMarkupInfo, getMarkupImage };
