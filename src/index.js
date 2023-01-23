@@ -11,4 +11,6 @@ const refs = {
 
 fetchTrandingMovies(1).then(movies => {
   renderHomePage(refs.gallery, movies.results).then(response => {});
+  console.log(movies);
 });
+
