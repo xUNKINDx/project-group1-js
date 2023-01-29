@@ -43,7 +43,7 @@ function getArrayFromLocalStorage(keyLocalStorage) {
   if (savedSettings !== null) {
     try {
       arrayFilms = JSON.parse(savedSettings);
-      
+
       arrayIdFilms = arrayFilms.map(film => film.id);
     } catch (e) {
       console.log('Ошибка парсинга из LocalStorage');
@@ -60,14 +60,14 @@ function getArrayFromLocalStorage(keyLocalStorage) {
 
 function addRemoveFilmsArrayInLocalStorage(arrayKeysLocalStorage, filmIdModal) {
   let keyLocalStorage = '';
-  
+
   for (let i = 0; i < arrayKeysLocalStorage.length; i++) {
     keyLocalStorage = arrayKeysLocalStorage[i];
     const { arrayIdFilms, arrayFilms } =
       getArrayFromLocalStorage(keyLocalStorage);
 
     const indexFilm = arrayIdFilms.indexOf(parseInt(filmIdModal, 10));
-    
+
     if (indexFilm !== -1) {
       arrayFilms.splice(indexFilm, 1);
     } else {
