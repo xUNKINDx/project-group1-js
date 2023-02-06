@@ -148,6 +148,7 @@ function showModal(e) {
       refs.filmInfoContainer.innerHTML = '';
       refs.filmInfoContainer.insertAdjacentHTML('afterbegin', markupInfo);
     });
+    
   } catch (error) {
     console.log(error);
   }
