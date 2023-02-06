@@ -136,7 +136,7 @@ function showModal(e) {
   refs.modal.classList.remove('is-hidden');
   refs.bodyTag.classList.add('scroll-off');
 
-  response = getMovieById(refs.filmIdElem.dataset.filmidmodal);
+  let response = getMovieById(refs.filmIdElem.dataset.filmidmodal);
   try {
     response.then(data => {
       filmData = data;
@@ -148,7 +148,7 @@ function showModal(e) {
       refs.filmInfoContainer.innerHTML = '';
       refs.filmInfoContainer.insertAdjacentHTML('afterbegin', markupInfo);
     });
-    
+
   } catch (error) {
     console.log(error);
   }
